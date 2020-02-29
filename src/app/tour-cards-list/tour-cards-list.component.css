@@ -1,0 +1,31 @@
+.details2{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: left !important;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: white;
+}
+
+.details2:hover {
+  opacity: 1;
+  border: 2px solid blanchedalmond;
+  border-radius: 30px;
+}
+
+.details1 {
+  position: relative !important;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.card{
+  border: white 5px solid;
+}

@@ -1,0 +1,13 @@
+nav{
+  z-index: 1;
+  color: white !important;
+  font-weight: bold !important;
+}
+a, li, ul{
+  color: white !important;
+  font-weight: bold !important;
+}
+
+img{
+  height: 1.5rem;
+}

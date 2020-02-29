@@ -1,0 +1,22 @@
+<div id="content" class="container-fluid">
+  <div class="row m-4 justify-content-around">
+    <div class="card col-3 text-center p-0" style="width: 18rem;" *ngFor="let tour of tours">
+      <img class="card-img-top " src="/assets/img/cards/{{ tour.img }}" alt="Card Image">
+      <div class="card-body">
+        <h5 class="card-title">{{ tour.title }}</h5>
+        <div class="details1">
+          <p>{{ tour.date }}</p>
+          <p>Duration: {{ tour.duration }}</p>
+          <p>Price (pp): {{ tour.price }} €</p>
+            <div class="details2">
+              <p class="text-center m-0">{{ tour.description }}</p>
+              <p class="text-center  m-0"> Location: {{ tour.destination }}</p>
+            </div>
+        </div>
+        <button class="btn btn-light" (click)="cartService.addToCart(tour)">Book now</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>

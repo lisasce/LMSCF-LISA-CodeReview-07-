@@ -1,0 +1,45 @@
+<div class="d-flex justify-content-between">
+<button class="btn btn-light  m-3" routerLink="/Travels">Back to Tours</button>
+<button class="btn btn-primary m-3" (click)="clearCart()">Empty your Cart</button>
+</div>
+
+<div class="container">
+  <table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Tour Name</th>
+        <th scope="col " class="text-center">Quantity</th>
+        <th scope="col " class="text-right">Price</th>
+        <th scope="col " class="text-right"></th>
+        <th scope="col " class="text-right"></th>
+        <th scope="col " class="text-right"></th>
+        <th scope="col " class="text-right">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tour of cartService.items; index as i">
+        <td>{{ tour.title }}</td>
+        <td  class="text-center">{{ tour.qty }}</td>
+        <td class="text-right">{{ tour.price.toFixed(2) }} €</td>
+        <td class="text-right"><button class="btn btn-danger " (click)="remove(tour,i)">Remove</button></td>
+        <td class="text-right"><button (click)="cartService.addToCart(tour)" class="btn btn-success "> + </button></td>
+        <td class="text-left"><button (click)="lessInCard(tour,i)" class="btn btn-danger"> - </button></td>
+        <td class="text-right">{{(tour.qty * tour.price).toFixed(2)}} €</td>
+
+      </tr>
+    </tbody>
+    <tfoot >
+    <tr class="text-center" *ngIf = "calcSubTotal()>200">
+      <td colspan="7" class="text-right">Subtotal: {{ calcSubTotal().toFixed(2) }} €</td>
+    </tr>
+    <tr class="text-center" *ngIf = "calcSubTotal()>200">
+      <td colspan="7" class="text-right">Discount {{calcSubTotal() < 500 ? '10' : '20'}}%: - {{calcDiscount().toFixed(2)}}€</td>
+    </tr>
+    <tr class="text-center">
+      <td colspan="7" class="text-right">Total: {{(calcSubTotal() - calcDiscount()).toFixed(2)}} €</td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+
+
