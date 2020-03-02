@@ -22,11 +22,12 @@ export class CartPageComponent implements OnInit {
 
   lessInCard(tour,i){
     if(tour.qty == 1){
+      tour.qty--;
       this.cartService.items.splice(i,1)
     }else {
       tour.qty --;
     }
-  };
+  }
   remove(tour, i){
     tour.qty = 0;
     this.cartService.items.splice(i,1);
